@@ -4,6 +4,10 @@
 #include <QFileDialog>
 #include<QMessageBox>
 #include <QDir>
+#include<QFile>
+#include<QTextStream>
+#include<QMessageBox>
+#include<QDebug>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -27,20 +31,26 @@ void MainWindow::on_pushButtonQuit_clicked()
 
 void MainWindow::on_pushButtonLoad_clicked()
 {
+    std::vector<QString> v;
+
     std::cout<<"load"<<std::endl;
     QString FileName = QFileDialog::getOpenFileName(this, "Open glossary csv-file", QDir::homePath());
-    QMessageBox::information(this, "..", FileName);
-
-    /*
-    model->setRootPath(QDir::currentPath());
-    QTreeView *tree = new QTreeView();
-    tree->setModel(model);
-    tree->hideColumn(1);
-    tree->hideColumn(3);
-    tree->resizeColumnToContents(1);
-    //setColumnWidth(0, x);
-    tree->show();
-    */
+    QMessageBox::information(this, "Loaded file", FileName);
+    QFile file(FileName);
+    if(!file.open(QFile::ReadOnly | QFile::Truncate)){
+        QMessageBox::warning(this, "Error", "file not open");
+        return;
+    }
+    QTextStream in(&file);
+    while (!in.atEnd()) {
+        QString line = in.readLine();
+        QStringList strList = line.split(QLatin1Char(','));
+        v.push_back(strList[0]); // Real word
+        strList.removeAt(0);
+        v.push_back(strList.join(",")); // Correct answer
+        words.push_back(v);
+        v.clear();
+    }
 }
 
 

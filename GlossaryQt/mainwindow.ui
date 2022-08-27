@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>959</width>
+    <height>667</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,8 +17,8 @@
    <widget class="QPushButton" name="pushButtonStart">
     <property name="geometry">
      <rect>
-      <x>220</x>
-      <y>90</y>
+      <x>290</x>
+      <y>110</y>
       <width>331</width>
       <height>121</height>
      </rect>
@@ -45,8 +45,8 @@
    <widget class="QPushButton" name="pushButtonLoad">
     <property name="geometry">
      <rect>
-      <x>220</x>
-      <y>220</y>
+      <x>290</x>
+      <y>260</y>
       <width>331</width>
       <height>111</height>
      </rect>
@@ -68,8 +68,8 @@
    <widget class="QPushButton" name="pushButtonQuit">
     <property name="geometry">
      <rect>
-      <x>220</x>
-      <y>340</y>
+      <x>290</x>
+      <y>400</y>
       <width>331</width>
       <height>111</height>
      </rect>
@@ -88,25 +88,7 @@
      <string>Quit</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>310</x>
-      <y>0</y>
-      <width>131</width>
-      <height>81</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>19</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>NU KÖR VI!</string>
-    </property>
-   </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>50</x>

@@ -17,6 +17,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    std::vector<std::vector<QString>> words;
 
 private slots:
     void on_pushButtonQuit_clicked();
@@ -25,8 +26,6 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    QFileSystemModel *model = new QFileSystemModel;
     Dialog *game;
-//    GlossaryWindow *nw = new GlossaryWindow();
 };
 #endif // MAINWINDOW_H

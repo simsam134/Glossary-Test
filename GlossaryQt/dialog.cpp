@@ -1,4 +1,5 @@
 #include "dialog.h"
+#include "mainwindow.h"
 #include "ui_dialog.h"
 #include <cstdlib>
 #include <fstream>
@@ -6,20 +7,22 @@
 #include <sstream>
 #include<QPushButton>
 #include <QFile>
+#include <ctime>
+
+//class MainWindow;
 
 Dialog::Dialog(QWidget *parent) :
     QDialog(parent),
     corr(4, false),
-    words(0),
     ui(new Ui::Dialog),
     Count(0)
 {
+    MainWindow* par = qobject_cast<MainWindow*>(this->parent());
+    pwords = &par->words;
+    NbrQ = pwords->size();
     ui->setupUi(this);
-//    words={"HardWord", "EasyWord", "MediumWord"};
-    LoadQuestions();
     buttons = {ui->alt1, ui->alt2, ui->alt3, ui->alt4};
     setQuestion();
-
 }
 
 Dialog::~Dialog()
@@ -27,45 +30,23 @@ Dialog::~Dialog()
     delete ui;
 }
 
-void Dialog::LoadQuestions(){
-    std::string fname = "ord.csv";
-    std::fstream file(fname, std::ios::in);
-    std::string line,word, answer;
-    QString Qword;
-    std::stringstream str;
-
-    if(QFile::exists("ord.csv")){
-        std::cout<<"Exists!!\n"<<std::endl;
-    }
-    if ( file.is_open() ){
-        while(getline(file, line)){
-            std::vector<QString> v;
-            str<<line;
-            str>>word;
-            Qword=QString::fromStdString(word);
-
-            v.push_back(Qword);
-            getline(str, answer);
-            Qword=QString::fromStdString(answer);
-            v.push_back(Qword);
-            words.push_back(v);
-
-        }
-    }else{
-        std::cout<<"no file open?"<<std::endl;
-    }
-
-
-}
 void Dialog::setQuestion(){
     ui->NextQuestionButton->setVisible(false);
     int correct = rand() % 4;
-    std::fill(corr.begin(), corr.end(), false);
+    ui->word->setText((*pwords)[Count][0]);
+    srand((unsigned) time(0));
     for (int i = 0 ; i<4 ; i++){
         buttons[i]->setStyleSheet("background-color: rgb(85, 170, 255)");
+        if(i==correct){
+            corr[i]=true;
+            buttons[correct]->setText((*pwords)[Count][1] );
+        }else{
+            corr[i]=false;
+
+            int rndNbr =rand() % (NbrQ);
+            buttons[i]->setText((*pwords)[rndNbr][1]);
+        }
     }
-//    buttons[correct]->setText(words[Count]);
-    corr[correct] = true;
     ++Count;
 }
 

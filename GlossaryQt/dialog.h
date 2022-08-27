@@ -3,7 +3,7 @@
 
 #include "qlabel.h"
 #include <QDialog>
-
+#include<QMainWindow>
 
 
 namespace Ui {
@@ -18,12 +18,13 @@ public:
     explicit Dialog(QWidget *parent = nullptr);
     ~Dialog();
 //    std::vector<QString> words;
+
     std::vector<QPushButton *> buttons;
+    std::vector<std::vector<QString>> *pwords;
     std::vector<bool> corr;
-    std::vector<std::vector<QString>> words;
+    int NbrQ;
     void setQuestion();
     void DispAnswer();
-    void LoadQuestions();
 
 private slots:
     void on_alt1_clicked();
