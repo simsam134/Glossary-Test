@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include<QFileSystemModel>
 #include <QTreeView>
+#include "dialog.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -25,5 +26,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
     QFileSystemModel *model = new QFileSystemModel;
+    Dialog *game;
+//    GlossaryWindow *nw = new GlossaryWindow();
 };
 #endif // MAINWINDOW_H

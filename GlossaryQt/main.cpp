@@ -1,4 +1,7 @@
+#include <vector>
+#include <string>
 #include "mainwindow.h"
+
 
 #include <QApplication>
 

@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>glossarywindow.h</file>
+        <file>arrow1.png</file>
+        <file>redarrow.jpg</file>
+        <file>redarrow2.png</file>
+        <file>redarrow3.jpg</file>
+        <file>redarrow3.png</file>
+        <file>redarrow4.png</file>
+        <file>ord.csv</file>
+    </qresource>
+</RCC>
