@@ -3,8 +3,8 @@ A quiz-like application built in QT where it is up to the user to set the questi
 This was mainly designed for glossary-tests whilst learning a new language. Main purpose of this project was to try out and learn QT.
 
 The user loads a csv-file in the format: 
-word1, answer1
-word2, answer2 etc..
+word1, answer1 \n
+word2, answer2 etc..\n
 
 4 alternatives are presented whilst doing the quiz were the wrong alternatives are just taken from other questions. 
 ![bild](https://user-images.githubusercontent.com/105457174/187532408-e6e9206a-25d6-4ee1-b7b0-8d0532970823.png)
