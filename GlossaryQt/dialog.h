@@ -23,6 +23,7 @@ public:
     std::vector<std::vector<QString>> *pwords;
     std::vector<bool> corr;
     int NbrQ;
+    int NbrCorr;
     void setQuestion();
     void DispAnswer();
 
@@ -38,6 +39,7 @@ private:
     Ui::Dialog *ui;
     int Count;
     void NextQuestion();
+    void updateCount(const bool c);
 
 };
 

@@ -8,12 +8,14 @@
 #include<QPushButton>
 #include <QFile>
 #include <ctime>
+#include<string>
 
 //class MainWindow;
 
 Dialog::Dialog(QWidget *parent) :
     QDialog(parent),
     corr(4, false),
+    NbrCorr(0),
     ui(new Ui::Dialog),
     Count(0)
 {
@@ -23,6 +25,9 @@ Dialog::Dialog(QWidget *parent) :
     ui->setupUi(this);
     buttons = {ui->alt1, ui->alt2, ui->alt3, ui->alt4};
     setQuestion();
+    QString tmp = "1/";
+    tmp=tmp + QString::number(NbrQ);
+    ui->NbrQT->setText(tmp);
 }
 
 Dialog::~Dialog()
@@ -32,6 +37,8 @@ Dialog::~Dialog()
 
 void Dialog::setQuestion(){
     ui->NextQuestionButton->setVisible(false);
+    ui->gz->setVisible(false);
+
     int correct = rand() % 4;
     ui->word->setText((*pwords)[Count][0]);
     srand((unsigned) time(0));
@@ -61,13 +68,35 @@ void Dialog::DispAnswer(){
     }
 }
 
+void Dialog::updateCount(bool const c){
+    if (c){
+        ui->NbrCorr->setText(QString::number(++NbrCorr));
+        ui->gz->setText("Correct! Congratulations!");
+        ui->gz->setStyleSheet("color: green");
+        ui->gz->setVisible(true);
+    }else{
+        ui->gz->setText("Wrong Answer!");
+        ui->gz->setStyleSheet("color: red");
+        ui->gz->setVisible(true);
+    }
+    QString tmp;
+    QString slash = "/";
+    tmp = QString::number(Count) +slash+ QString::number(NbrQ);
+    ui->NbrQT->setText(tmp);
+
+
+}
 void Dialog::on_alt1_clicked()
 {
+    if(corr[0]){updateCount(true);}
+    else{updateCount(false);}
     DispAnswer();
 }
 
 void Dialog::on_alt2_clicked()
 {
+    if(corr[1]){updateCount(true);}
+    else{updateCount(false);}
     DispAnswer();
 }
 
@@ -75,12 +104,16 @@ void Dialog::on_alt2_clicked()
 
 void Dialog::on_alt3_clicked()
 {
+    if(corr[2]){updateCount(true);}
+    else{updateCount(false);}
     DispAnswer();
 }
 
 
 void Dialog::on_alt4_clicked()
 {
+    if(corr[3]){updateCount(true);}
+    else{updateCount(false);}
     DispAnswer();
 }
 

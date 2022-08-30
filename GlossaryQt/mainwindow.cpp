@@ -24,7 +24,6 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButtonQuit_clicked()
 {
-    std::cout<<"Quit"<<std::endl;
     qApp->quit();
 }
 
@@ -33,7 +32,6 @@ void MainWindow::on_pushButtonLoad_clicked()
 {
     std::vector<QString> v;
 
-    std::cout<<"load"<<std::endl;
     QString FileName = QFileDialog::getOpenFileName(this, "Open glossary csv-file", QDir::homePath());
     QMessageBox::information(this, "Loaded file", FileName);
     QFile file(FileName);
@@ -56,14 +54,10 @@ void MainWindow::on_pushButtonLoad_clicked()
 
 void MainWindow::on_pushButtonStart_clicked()
 {
-    std::cout<<"Start"<<std::endl;
-//    Dialog game;
-//    game.setModal(true);
-//    game.exec();
+    if (words.empty()){return;}
     hide();
     game = new Dialog(this);
     game->show();
-    std::cout<<"testar"<<std::endl;
 
 }
 

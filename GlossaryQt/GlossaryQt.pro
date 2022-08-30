@@ -11,13 +11,11 @@ CONFIG += c++17
 SOURCES += \
     dialog.cpp \
     main.cpp \
-    mainwindow.cpp \
-    question.cpp
+    mainwindow.cpp
 
 HEADERS += \
     dialog.h \
-    mainwindow.h \
-    question.h
+    mainwindow.h
 
 FORMS += \
     dialog.ui \

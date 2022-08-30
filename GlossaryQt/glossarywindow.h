@@ -1,4 +1,4 @@
-#ifndef GLOSSARYWINDOW_H
+ifndef GLOSSARYWINDOW_H
 #define GLOSSARYWINDOW_H
 
 #include <QAbstractItemModel>
