@@ -16,9 +16,9 @@
   <widget class="QLabel" name="word">
    <property name="geometry">
     <rect>
-     <x>30</x>
+     <x>40</x>
      <y>60</y>
-     <width>931</width>
+     <width>921</width>
      <height>161</height>
     </rect>
    </property>
@@ -33,7 +33,7 @@
     <enum>Qt::LeftToRight</enum>
    </property>
    <property name="text">
-    <string>word</string>
+    <string/>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -147,9 +147,9 @@ border: none;</string>
   <widget class="QLabel" name="NbrCorr">
    <property name="geometry">
     <rect>
-     <x>180</x>
+     <x>190</x>
      <y>100</y>
-     <width>211</width>
+     <width>51</width>
      <height>111</height>
     </rect>
    </property>
@@ -212,7 +212,7 @@ border: none;</string>
     <rect>
      <x>10</x>
      <y>140</y>
-     <width>181</width>
+     <width>171</width>
      <height>41</height>
     </rect>
    </property>

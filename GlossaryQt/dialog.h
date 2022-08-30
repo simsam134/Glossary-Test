@@ -41,6 +41,7 @@ private:
     void NextQuestion();
     void updateCount(const bool c);
 
+
 };
 
 #endif // DIALOG_H

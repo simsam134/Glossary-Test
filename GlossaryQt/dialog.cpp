@@ -17,7 +17,7 @@ Dialog::Dialog(QWidget *parent) :
     corr(4, false),
     NbrCorr(0),
     ui(new Ui::Dialog),
-    Count(0)
+    Count(-1)
 {
     MainWindow* par = qobject_cast<MainWindow*>(this->parent());
     pwords = &par->words;
@@ -36,6 +36,13 @@ Dialog::~Dialog()
 }
 
 void Dialog::setQuestion(){
+    int rndNbr;
+    Count++;
+    QString tmp;
+    QString slash = "/";
+    tmp = QString::number(Count+1) +slash+ QString::number(NbrQ);
+    ui->NbrQT->setText(tmp);
+
     ui->NextQuestionButton->setVisible(false);
     ui->gz->setVisible(false);
 
@@ -50,11 +57,13 @@ void Dialog::setQuestion(){
         }else{
             corr[i]=false;
 
-            int rndNbr =rand() % (NbrQ);
+            rndNbr =rand() % (NbrQ);
+            while(rndNbr==Count){
+                rndNbr =rand() % (NbrQ); // We dont want the correct alternative twice in a question
+            }
             buttons[i]->setText((*pwords)[rndNbr][1]);
         }
     }
-    ++Count;
 }
 
 void Dialog::DispAnswer(){
@@ -79,12 +88,6 @@ void Dialog::updateCount(bool const c){
         ui->gz->setStyleSheet("color: red");
         ui->gz->setVisible(true);
     }
-    QString tmp;
-    QString slash = "/";
-    tmp = QString::number(Count) +slash+ QString::number(NbrQ);
-    ui->NbrQT->setText(tmp);
-
-
 }
 void Dialog::on_alt1_clicked()
 {
@@ -121,6 +124,14 @@ void Dialog::on_alt4_clicked()
 
 void Dialog::on_NextQuestionButton_clicked()
 {
+    qDebug()<<"nbrQ"<<NbrQ<<" Count = "<<Count;
+    if(Count==NbrQ-1){
+        hide();
+        qDebug()<<"End of questions";
+        QWidget *pare = this->parentWidget();
+        pare->show();
+        return;
+    }
     setQuestion();
 }
 

@@ -17,8 +17,8 @@
    <widget class="QPushButton" name="pushButtonStart">
     <property name="geometry">
      <rect>
-      <x>290</x>
-      <y>110</y>
+      <x>300</x>
+      <y>140</y>
       <width>331</width>
       <height>121</height>
      </rect>
@@ -28,6 +28,10 @@
       <family>Rockwell Extra Bold</family>
       <pointsize>24</pointsize>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(85, 170, 255);
+border: none</string>
     </property>
     <property name="text">
      <string>Start Exercise</string>
@@ -45,8 +49,8 @@
    <widget class="QPushButton" name="pushButtonLoad">
     <property name="geometry">
      <rect>
-      <x>290</x>
-      <y>260</y>
+      <x>300</x>
+      <y>290</y>
       <width>331</width>
       <height>111</height>
      </rect>
@@ -61,6 +65,10 @@
     <property name="toolTip">
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Glossary need to be in a csv-file with one glossary per line. Leftmost word is the glossary and every cell to the rigtht are translations.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(85, 170, 255);
+border: none</string>
+    </property>
     <property name="text">
      <string>Load Glossary</string>
     </property>
@@ -68,8 +76,8 @@
    <widget class="QPushButton" name="pushButtonQuit">
     <property name="geometry">
      <rect>
-      <x>290</x>
-      <y>400</y>
+      <x>300</x>
+      <y>440</y>
       <width>331</width>
       <height>111</height>
      </rect>
@@ -83,6 +91,10 @@
     </property>
     <property name="toolTip">
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(85, 170, 255);
+border: none</string>
     </property>
     <property name="text">
      <string>Quit</string>
@@ -98,6 +110,29 @@
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout"/>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>30</y>
+      <width>551</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>15</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Welcome! 
+ Please load a .CSV file below to begin the test!</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
